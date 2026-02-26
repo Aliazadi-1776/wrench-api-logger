@@ -1,0 +1,80 @@
+#!/usr/bin/env node
+
+const chalkModule = require('chalk');
+const chalk = chalkModule.default || chalkModule;
+const cli = require('../lib/cli.js');
+
+const VERSION = '1.0.0';
+
+function printHelp() {
+  console.log(`wrench-logger ${VERSION}
+CLI for logging API responses with Playwright
+
+Usage:
+  wrench-logger [options]
+
+Options:
+  --url <url>         Target URL to browse
+  --filter <regex>    Regex filter for APIs (default: .*)
+  --headless          Run in headless mode
+  --timeout <ms>      Navigation timeout in ms (default: 30000)
+  --duration <ms>     Auto-stop after ms (default: 0 = keep running)
+  --realtime          Show live request logs
+  --output <type>     Output type: json, har, binary (default: json)
+  --quiet             Suppress banner and non-essential output
+  --interactive       Run in interactive mode
+  --version           Show version
+  --help              Show this help
+`);
+}
+
+function parseArgs(argv) {
+  const options = {
+    filter: '.*',
+    headless: false,
+    timeout: 30000,
+    duration: 0,
+    realtime: true,
+    output: 'json',
+    quiet: false,
+    interactive: false
+  };
+
+  for (let i = 0; i < argv.length; i += 1) {
+    const arg = argv[i];
+    if (arg === '--help') {
+      printHelp();
+      process.exit(0);
+    }
+    if (arg === '--version') {
+      console.log(VERSION);
+      process.exit(0);
+    }
+    if (arg === '--headless' || arg === '--realtime' || arg === '--quiet' || arg === '--interactive') {
+      options[arg.slice(2)] = true;
+      continue;
+    }
+    if (arg === '--url' || arg === '--filter' || arg === '--timeout' || arg === '--duration' || arg === '--output') {
+      const value = argv[i + 1];
+      if (!value || value.startsWith('--')) {
+        throw new Error(`Missing value for ${arg}`);
+      }
+      options[arg.slice(2)] = value;
+      i += 1;
+      continue;
+    }
+    throw new Error(`Unknown option: ${arg}`);
+  }
+
+  return options;
+}
+
+(async () => {
+  try {
+    const options = parseArgs(process.argv.slice(2));
+    await cli.run(options);
+  } catch (error) {
+    console.error(chalk.red(`Error: ${error.message}`));
+    process.exit(1);
+  }
+})();

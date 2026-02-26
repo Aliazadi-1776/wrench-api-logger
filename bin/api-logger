@@ -1,0 +1,4 @@
+#!/usr/bin/env node
+
+console.warn('`api-logger` is deprecated. Use `wrench-logger` instead.');
+require('./wrench-logger');

@@ -1,0 +1,36 @@
+{
+  "name": "wrench-logger",
+  "version": "1.0.0",
+  "description": "CLI tool to capture and log API responses using Playwright",
+  "main": "lib/logger.js",
+  "bin": {
+    "wrench-logger": "./bin/wrench-logger"
+  },
+  "scripts": {
+    "start": "node bin/wrench-logger",
+    "test": "jest",
+    "build": "pkg . --targets node18-linux-x64 --output dist/wrench-logger",
+    "build:deb": "bash scripts/build-deb.sh"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.29.0",
+    "@babel/preset-env": "^7.29.0",
+    "babel-jest": "^30.2.0",
+    "jest": "^30.2.0",
+    "pkg": "^5.8.1"
+  },
+  "keywords": [
+    "playwright",
+    "api-logger",
+    "network-capture",
+    "cli"
+  ],
+  "author": "Aliazadi-1776",
+  "license": "MIT",
+  "dependencies": {
+    "chalk": "^5.6.2",
+    "cli-table3": "^0.6.5",
+    "inquirer": "^8.2.6",
+    "playwright": "^1.54.2"
+  }
+}

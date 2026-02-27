@@ -29,7 +29,7 @@ A CLI tool to capture and log API responses with Playwright.
 
 ## 📦 Download (One Click)
 
-- 🐧 Debian Package (.deb): [⬇️ Download](./dist/wrench-api-logger-v2.deb)
+- 🐧 Debian Package (.deb): [⬇️ Download](https://github.com/Aliazadi-1776/wrench-api-logger/releases/tag/wrench-api-logger)
 
 
 ---

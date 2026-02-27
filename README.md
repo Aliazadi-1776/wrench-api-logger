@@ -31,40 +31,6 @@ A CLI tool to capture and log API responses with Playwright.
 
 - 🐧 Debian Package (.deb): [⬇️ Download](./dist/wrench-api-logger-v2.deb)
 
----
-
-## 🇮🇷 راهنمای فارسی
-
-### نصب سریع
-```bash
-./install.sh
-wrench-logger --help
-```
-
-### نصب نسخه Debian
-```bash
-sudo dpkg -i ./dist/wrench-logger_1.0.0_amd64.deb
-```
-
-نصب اولیه مرورگر Chromium برای Playwright (فقط یک‌بار):
-```bash
-node /opt/wrench-logger/node_modules/playwright/cli.js install chromium
-```
-
-بعد از نصب `.deb`، با کلیک روی آیکون برنامه در منو، `wrench-logger --interactive` باز می‌شود.
-
-### استفاده
-```bash
-wrench-logger --url https://example.com --filter "api|graphql" --headless --output json
-```
-
-گزینه‌های مهم:
-- `--url <url>` آدرس سایت هدف
-- `--filter <regex>` فیلتر درخواست‌ها
-- `--output <json|har|binary>` نوع خروجی
-- `--realtime` لاگ لحظه‌ای
-- `--interactive` حالت تعاملی
-- `--duration <ms>` توقف خودکار؛ اگر `0` باشد اپ باز می‌ماند تا Stop دستی
 
 ---
 
@@ -118,5 +84,42 @@ npm run build:deb
 - `out/capture.har`
 - `out/response_*.bin`
 
+
+---
+
+## 🇮🇷 راهنمای فارسی
+
+### نصب سریع
+```bash
+./install.sh
+wrench-logger --help
+```
+
+### نصب نسخه Debian
+```bash
+sudo dpkg -i ./dist/wrench-logger_1.0.0_amd64.deb
+```
+
+نصب اولیه مرورگر Chromium برای Playwright (فقط یک‌بار):
+```bash
+node /opt/wrench-logger/node_modules/playwright/cli.js install chromium
+```
+
+بعد از نصب `.deb`، با کلیک روی آیکون برنامه در منو، `wrench-logger --interactive` باز می‌شود.
+
+### استفاده
+```bash
+wrench-logger --url https://example.com --filter "api|graphql" --headless --output json
+```
+
+گزینه‌های مهم:
+- `--url <url>` آدرس سایت هدف
+- `--filter <regex>` فیلتر درخواست‌ها
+- `--output <json|har|binary>` نوع خروجی
+- `--realtime` لاگ لحظه‌ای
+- `--interactive` حالت تعاملی
+- `--duration <ms>` توقف خودکار؛ اگر `0` باشد اپ باز می‌ماند تا Stop دستی
+
+---
 ساخته شده با عشق و کافئین ☕✨  
 Built with coffee and curiosity.

@@ -11,7 +11,7 @@ A CLI tool to capture and log API responses with Playwright.
 
 ## 📦 Download (One Click)
 
-- 🐧 Debian Package (.deb): [⬇️ Download](./dist/wrench-logger_1.0.0_amd64.deb)
+- 🐧 Debian Package (.deb): [⬇️ Download](./dist/wrench-logger-v2.deb)
 
 ---
 
